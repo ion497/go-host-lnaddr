@@ -98,9 +98,9 @@ func MakeInvoice(params Params) (bolt11 string, r_hash string, err error) {
 		}
 
 		// macaroon must be hex, so if it is on base64 we adjust that
-		if b, err := base64.StdEncoding.DecodeString(backend.Macaroon); err == nil {
-			backend.Macaroon = hex.EncodeToString(b)
-		}
+		//if b, err := base64.StdEncoding.DecodeString(backend.Macaroon); err == nil {
+		//	backend.Macaroon = hex.EncodeToString(b)
+		//}
 
 		req.Header.Set("Grpc-Metadata-macaroon", backend.Macaroon)
 		resp, err := http.DefaultClient.Do(req)

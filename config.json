@@ -1,6 +1,6 @@
 {
 	"RPCHost": "https://localhost:8080",
-	"InvoiceMacaroonPath": "/home/alice/.lnd/data/chain/bitcoin/mainnet/invoices.macaroon",
+	"InvoiceMacaroonHex": "12321453532",
 	"TLSCertPath": "/home/alice/.lnd/tls.cert",
 	"Private": true,
 	"LightningAddresses": [

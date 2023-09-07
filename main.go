@@ -17,7 +17,7 @@ import (
 
 type Config struct {
 	RPCHost             string
-	InvoiceMacaroonPath string
+	InvoiceMacaroonHex 	string
 	TLSCertPath         string
 	Private             bool
 	LightningAddresses  []string
@@ -96,16 +96,11 @@ func main() {
 	}
 
 	setupHandlerPerAddress(config)
-	macaroonBytes, err := ioutil.ReadFile(config.InvoiceMacaroonPath)
-	if err != nil {
-		log.Fatalf("Cannot read macaroon file %s: %s", config.InvoiceMacaroonPath, err)
-	}
-
 	setupNostrHandlers(config.Nostr)
 
 	backend = LNDParams{
 		Host:     config.RPCHost,
-		Macaroon: fmt.Sprintf("%X", macaroonBytes),
+		Macaroon: config.InvoiceMacaroonHex
 	}
 
 	if config.TLSCertPath != "" {
