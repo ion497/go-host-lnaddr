@@ -100,7 +100,7 @@ func main() {
 
 	backend = LNDParams{
 		Host:     config.RPCHost,
-		Macaroon: config.InvoiceMacaroonHex
+		Macaroon: config.InvoiceMacaroonHex,
 	}
 
 	if config.TLSCertPath != "" {
